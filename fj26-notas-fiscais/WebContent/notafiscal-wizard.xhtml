@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:f="http://java.sun.com/jsf/core" 
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/_template.xhtml">
+	<ui:define name="corpo">
+	
+		<h2>Cadastro Nota Fiscal</h2>
+		<h:form>
+		<fieldset>
+			<legend>Dados da Nota</legend>
+			<h:outputLabel value="CNPJ do Cliente" for="cnpj" />
+			<h:inputText id="cnpj" value="#{notaFiscalBean.notaFiscal.cnpj}" />
+			
+			<h:outputLabel value="Data" for="data" />
+			<h:inputText id="data" value="#{notaFiscalBean.notaFiscal.data.time}" >
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+			</h:inputText>
+			
+			
+
+		</fieldset>
+		
+		<h:commandButton value="Avançar" action="#{notaFiscalBean.avanca}"/>
+	</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
