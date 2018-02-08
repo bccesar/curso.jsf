@@ -3,7 +3,8 @@
 <html 	xmlns="http://www.w3.org/1999/xhtml" 
 		xmlns:f="http://java.sun.com/jsf/core" 
 		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/_template.xhtml">
 	<ui:define name="corpo">
@@ -13,13 +14,10 @@
 		<fieldset>
 			<legend>Dados da Nota</legend>
 			<h:outputLabel value="CNPJ do Cliente" for="cnpj" />
-			<h:inputText id="cnpj" value="#{notaFiscalBean.notaFiscal.cnpj}" />
+			<p:inputMask id="cnpj" value="#{notaFiscalBean.notaFiscal.cnpj}" mask="99.999.999/999-99" />
 			
 			<h:outputLabel value="Data" for="data" />
-			<h:inputText id="data" value="#{notaFiscalBean.notaFiscal.data.time}" >
-				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
-			</h:inputText>
-			
+			<p:calendar pattern="dd/MM/yyyy" id="data" value="#{notaFiscalBean.notaFiscal.data.time}" />
 			
 
 		</fieldset>
