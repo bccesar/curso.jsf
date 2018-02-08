@@ -10,6 +10,7 @@
 
 <h:form id="formFormulario">
 		<h2>Cadastro de Produtos</h2>
+		<h:messages styleClass="erros"></h:messages>
 	<fieldset>
 		<legend>Dados do produto</legend>	
 	
@@ -19,7 +20,9 @@
 		<h:outputLabel value="Descrição:" for="descricao" />
 		<h:inputTextarea id="descricao" value="#{produtoBean.produto.descricao}" />
 		<h:outputLabel value="Preço:" for="preco" />
-		<h:inputTextarea id="preco" value="#{produtoBean.produto.preco}" />
+		<h:inputText id="preco" value="#{produtoBean.produto.preco}" required="true" requiredMessage="Preço obrigatório"  validatorMessage="O valor mínimo é 0,50">
+			<f:validateDoubleRange minimum="0.50" />
+		</h:inputText>
 		<h:commandButton value="Gravar" action="#{produtoBean.grava}" >
 			<f:ajax render="@all" execute="@form"></f:ajax>
 		</h:commandButton>
